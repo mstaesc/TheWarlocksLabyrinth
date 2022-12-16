@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/navigation_new_game"
+        android:name="edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.NewGameFragment"
+        android:label="fragment_new_game"
+        tools:layout="@layout/fragment_new_game" />
+    <fragment
+        android:id="@+id/navigation_resume_game"
+        android:name="edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.ResumeGameFragment"
+        android:label="fragment_resume_game"
+        tools:layout="@layout/fragment_resume_game" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_new_game"
+            app:destination="@id/navigation_new_game" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_resume_game"
+            app:destination="@id/navigation_resume_game" />
+    </fragment>
+</navigation>
