@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.R;
+import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.model.Game;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +62,7 @@ public class NewGameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_game, container, false);
+//        return inflater.inflate(R.layout.fragment_new_game, container, false);
+        return new Game(getContext());
     }
 }
