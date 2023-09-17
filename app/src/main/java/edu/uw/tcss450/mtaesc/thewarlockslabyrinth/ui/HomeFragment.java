@@ -1,5 +1,6 @@
 package edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Fragment locked in portrait screen orientation
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 

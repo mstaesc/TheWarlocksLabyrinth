@@ -7,7 +7,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
+
+//import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.MainGameDisplay;
 
 public class MainActivity extends AppCompatActivity {
 

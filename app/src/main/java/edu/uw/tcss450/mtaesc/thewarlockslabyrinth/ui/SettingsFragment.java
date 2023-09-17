@@ -1,5 +1,6 @@
 package edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -51,6 +52,10 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Fragment locked in portrait screen orientation
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
