@@ -1,7 +1,6 @@
 package edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui;
 
 import android.content.pm.ActivityInfo;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -17,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.Question;
+import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.Question;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.R;
 //import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.MainThread;
 
