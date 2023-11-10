@@ -9,12 +9,19 @@
         android:id="@+id/navigation_question_screen_fragment"
         android:name="edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.QuestionScreenFragment"
         android:label="@string/door_question"
-        tools:layout="@layout/fragment_questions_screen" />
+        tools:layout="@layout/fragment_questions_screen" >
+        <action
+            android:id="@+id/action_navigation_question_screen_fragment_to_navigation_new_game"
+            app:destination="@id/navigation_new_game" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_new_game"
         android:name="edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.NewGameFragment"
         android:label="@string/new_game_doors"
-        tools:layout="@layout/fragment_new_game" />
+        tools:layout="@layout/fragment_new_game" >
+        <action    android:id="@+id/action_navigation_new_game_to_navigation_question_screen_fragment"
+            app:destination="@id/navigation_question_screen_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_resume_game"
         android:name="edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.ResumeGameFragment"

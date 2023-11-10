@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.MainActivity;
+import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.databinding.FragmentHomeBinding;
+import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.databinding.FragmentNewGameBinding;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.Question;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.R;
 //import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.MainThread;
@@ -84,7 +87,14 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
 //        trueBtn.setOnClickListener(this);
         nextBtn.setOnClickListener(this);
         prevBtn.setOnClickListener(this);
+
+        FragmentNewGameBinding binding = FragmentNewGameBinding.bind(requireView());
+        binding.imagep.setOnClickListener(button ->
+                Navigation.findNavController(requireView()).navigate(
+                        NewGameFragmentDirections.actionNavigationNewGameToNavigationQuestionScreenFragment()));
     }
+
+
     @Override
     public void onClick(View view) {
         //check what button the user clicks w/ switch case
@@ -115,9 +125,6 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
                     currentQuestionIndex = (currentQuestionIndex--) % q.length;
                     updateDoor();
                 }
-                break;
-            case R.id.imagep:
-                //todo: click door, go to question screen (QuestionScreenFragment)
 
         }
     }

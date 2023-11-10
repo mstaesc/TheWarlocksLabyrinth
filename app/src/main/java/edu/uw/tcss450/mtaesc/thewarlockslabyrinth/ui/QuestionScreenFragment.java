@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +32,7 @@ public class QuestionScreenFragment extends Fragment implements View.OnClickList
         -EX: it's like the user's contact chosen from the contact list in TCSS450 proj
      */
 
-    private ImageView questionPic;
+    private ImageButton questionPic;
     private Button falseBtn;
     private Button trueBtn;
 
@@ -93,7 +94,19 @@ public class QuestionScreenFragment extends Fragment implements View.OnClickList
         goForwardBtn.setVisibility(View.INVISIBLE);
 
         questionText = (TextView) getView().findViewById(R.id.answerText);
-        questionPic = (ImageView) getView().findViewById(R.id.questions_background);
+//        questionPic = (ImageButton) getView().findViewById(R.id.questions_background);
+
+        FragmentQuestionsScreenBinding binding = FragmentQuestionsScreenBinding.bind(requireView());
+
+        //TODO: back button to prev room
+        binding.goBackBtn.setOnClickListener(button ->
+                Navigation.findNavController(requireView()).navigate(
+                        QuestionScreenFragmentDirections.actionNavigationQuestionScreenFragmentToNavigationNewGame()));
+
+        //TODO: enter button to new room
+        binding.goForwardBtn.setOnClickListener(button ->
+                Navigation.findNavController(requireView()).navigate(
+                        QuestionScreenFragmentDirections.actionNavigationQuestionScreenFragmentToNavigationNewGame()));
     }
 
     @Override
