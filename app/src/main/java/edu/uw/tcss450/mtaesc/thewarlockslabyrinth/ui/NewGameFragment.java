@@ -1,5 +1,6 @@
 package edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.MainActivity;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.Question;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.R;
 //import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.MainThread;
@@ -27,11 +29,11 @@ import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.R;
 public class NewGameFragment extends Fragment implements View.OnClickListener{
     private static final String TAG = NewGameFragment.class.getSimpleName();
 
-    private Button falseBtn;
-    private Button trueBtn;
+//    private Button falseBtn;
+//    private Button trueBtn;
     private ImageButton nextBtn;
     private ImageButton prevBtn;
-    private ImageView doorImage;
+    private ImageButton doorImage;
     private TextView questionText;
 
     private int correctAns = 0;
@@ -68,18 +70,18 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //TODO: connect buttons with IDs (in activity)
-        falseBtn = (Button) getView().findViewById(R.id.falseBtn);
-        trueBtn = (Button) getView().findViewById(R.id.trueBtn);
+//        falseBtn = (Button) getView().findViewById(R.id.falseBtn);
+//        trueBtn = (Button) getView().findViewById(R.id.trueBtn);
         nextBtn = (ImageButton) getView().findViewById(R.id.next_button);
         prevBtn = (ImageButton) getView().findViewById(R.id.prev_button);
 
         //register buttons to listen to click events
 
-        questionText = (TextView) getView().findViewById(R.id.answerText);
-        doorImage = (ImageView) getView().findViewById(R.id.imagep);
+//        questionText = (TextView) getView().findViewById(R.id.answerText);
+        doorImage = (ImageButton) getView().findViewById(R.id.imagep);
 
-        falseBtn.setOnClickListener(this);
-        trueBtn.setOnClickListener(this);
+//        falseBtn.setOnClickListener(this);
+//        trueBtn.setOnClickListener(this);
         nextBtn.setOnClickListener(this);
         prevBtn.setOnClickListener(this);
     }
@@ -87,12 +89,6 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         //check what button the user clicks w/ switch case
         switch (view.getId()) {
-            case R.id.falseBtn:
-                checkUserAnswer(false);
-                break;
-            case R.id.trueBtn:
-                checkUserAnswer(true);
-                break;
             case R.id.next_button:
                 //go to next door, only 4 doors
                 if (currentQuestionIndex < 5) {
@@ -100,8 +96,8 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
 
                     if (currentQuestionIndex == 4) { //reached last door
                         questionText.setText(getString(R.string.endGood, correctAns));
-                        falseBtn.setVisibility(View.INVISIBLE);
-                        trueBtn.setVisibility(View.INVISIBLE);
+//                        falseBtn.setVisibility(View.INVISIBLE);
+//                        trueBtn.setVisibility(View.INVISIBLE);
                         nextBtn.setVisibility(View.INVISIBLE);
                         prevBtn.setVisibility(View.INVISIBLE);
 
@@ -110,22 +106,26 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
                             questionText.setText(getString(R.string.endBad));
                         }
                     } else {
-                        updateQuestion();
+                        updateDoor();
                     }
                 }
                 break;
             case R.id.prev_button:
                 if (currentQuestionIndex > 0) {
                     currentQuestionIndex = (currentQuestionIndex--) % q.length;
-                    updateQuestion();
+                    updateDoor();
                 }
+                break;
+            case R.id.imagep:
+                //todo: click door, go to question screen (QuestionScreenFragment)
+
         }
     }
 
     /**
      * Updates the door that the user is looking at and gives new question from q[].
      */
-    private void updateQuestion() {
+    private void updateDoor() {
         Log.d("Current", "onClick: " + currentQuestionIndex);
         questionText.setText(q[currentQuestionIndex].getQuestionID());
 
@@ -144,24 +144,5 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
                 doorImage.setImageResource(R.drawable.door_4);
                 break;
         }
-    }
-
-    /**
-     * checks if user answered correctly and pops up message of success or not.
-     *
-     * @param userCorrectAns
-     */
-    private void checkUserAnswer(boolean userCorrectAns) {
-        boolean trueAns = q[currentQuestionIndex].getAnswerTrue();
-        int toastMessageID;
-
-        if (userCorrectAns == trueAns) {
-            toastMessageID = R.string.correct_answer;
-            correctAns++; //increase counter of answers that user got right
-        } else {
-            toastMessageID = R.string.wrong_answer;
-        }
-
-        Toast.makeText(getActivity(), toastMessageID, Toast.LENGTH_SHORT).show(); //pop up to inform user if what answer they chose was correct or not
     }
 }

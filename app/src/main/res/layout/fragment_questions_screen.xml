@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/containerTest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/questions_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:contentDescription="Door User is Looking at, can interact with if clicked on"
+        android:src="@drawable/question_background"/>
+
+    <TextView
+        android:id="@+id/answerText"
+        android:layout_width="729dp"
+        android:layout_height="291dp"
+        android:layout_gravity="right"
+        android:layout_marginStart="-2dp"
+        android:contentDescription="Question text user answers"
+        android:padding="10dp"
+        android:text="@string/questionText"
+        android:textColor="@android:color/white"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:layout_below="@+id/answerText"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="1dp">
+
+        <!--TrueButton-->
+        <Button
+            android:id="@+id/trueBtn"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="120dp"
+            android:backgroundTint="#5BD91B"
+            android:contentDescription="True button"
+            android:text="@string/trueText"
+            android:textSize="40sp" />
+
+        <!--FalseButton-->
+        <Button
+            android:id="@+id/falseBtn"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="440dp"
+            android:backgroundTint="#E33328"
+            android:contentDescription="false button"
+            android:text="@string/falseText"
+            android:textSize="40sp" />
+
+    </RelativeLayout>
+    <!--leave door, go back into the room-->
+    <Button
+        android:id="@+id/goBackBtn"
+        android:layout_marginTop="185dp"
+        android:layout_width="wrap_content"
+        android:layout_height="110dp"
+        android:layout_marginLeft="22dp"
+        android:backgroundTint="#BEBDB8"
+        android:contentDescription="Go Back"
+        android:text="@string/goBackText"
+        android:textSize="40sp" />
+
+    <!--go through door to move on to next room-->
+    <Button
+        android:id="@+id/goForwardBtn"
+        android:layout_marginTop="185dp"
+        android:layout_width="wrap_content"
+        android:layout_height="110dp"
+        android:layout_marginLeft="440dp"
+        android:backgroundTint="#4ADEDE"
+        android:contentDescription="Enter Door"
+        android:text="@string/goForwardText"
+        android:textSize="40sp" />
+
+</RelativeLayout>

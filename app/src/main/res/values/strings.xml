@@ -3,8 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="trueText">TRUE</string>
-    <string name="falseText">FALSE</string>
+    <string name="new_game_doors">New Game</string>
+    <string name="door_question">Question</string>
+
     <string name="questionText">Sample question goes here: My name is Stephanie</string>
     <string name="questionText2">Sample question goes here: My name is Holly</string>
     <string name="questionText3">Sample question goes here: Bloodborne is made by a Japanese game studio</string>
@@ -15,6 +16,10 @@
 
     <string name="correct_answer">That\'s correct</string>
     <string name="wrong_answer">That\'s incorrect</string>
+    <string name="trueText">TRUE</string>
+    <string name="falseText">FALSE</string>
+    <string name="goBackText">LEAVE DOOR</string>
+    <string name="goForwardText">ENTER DOOR</string>
 
     <string name="endGood">Congrats! You reached the end of the labyrinth and escaped with your life. You got a total correctness of <b>%1$d</b> out of 4</string>
     <string name="endBad">Oh no! You are trapped within the labyrinth with no way out. You are left to starve, your body leaving behind a reminder of the dangers for future explorers lost within the Warlock\'s Labyrinth.</string>

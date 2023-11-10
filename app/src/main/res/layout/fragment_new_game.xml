@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#DFD2D1"
     tools:context=".MainActivity">
 
     <!-- Show door for each question -->
@@ -16,94 +17,46 @@
     <!--Using another LinearLayout for showing buttons
         in horizontal orientation-->
 
-    <ImageView
-        android:id="@+id/imagep"
-        android:layout_width="493dp"
-        android:layout_height="354dp"
-        android:contentDescription="Door User is Interacting With"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/door_1" />
-
     <RelativeLayout
-        android:layout_width="536dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/answerText"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="1dp"
-        android:layout_toEndOf="@+id/imagep">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="1dp">
 
-        <!--TrueButton-->
+        <ImageButton
+            android:id="@+id/imagep"
+            android:layout_width="554dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="-10dp"
+            android:contentDescription="Door User is Interacting With"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/door_1" />
 
-        <!--FalseButton-->
-        <Button
-            android:id="@+id/trueBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:backgroundTint="#5BD91B"
-            android:contentDescription="True button"
-            android:text="@string/trueText"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/falseBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
-            android:backgroundTint="#E33328"
-            android:contentDescription="false button"
-            android:text="@string/falseText"
-            android:textSize="20sp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="481dp"
-        android:layout_height="94dp"
-        android:layout_alignBottom="@+id/imagep"
-        android:layout_marginStart="-492dp"
-        android:layout_marginBottom="16dp"
-        android:layout_toEndOf="@+id/imagep">
-
-        <!--PreviousButton-->
+        <!--NextButton-->
         <ImageButton
             android:id="@+id/prev_button"
-            android:layout_width="76dp"
+            android:layout_width="108dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
+            android:layout_alignLeft="@+id/imagep"
+            android:layout_marginLeft="-94dp"
             android:backgroundTint="#DFD2D1"
             android:contentDescription="Look at the previous door"
             android:src="@drawable/ic_prev_arrow_24_black"
             android:text="@string/prevText" />
 
-        <!--NextButton-->
+        <!--PreviousButton-->
         <ImageButton
             android:id="@+id/next_button"
-            android:layout_width="81dp"
+            android:layout_width="96dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="400dp"
+            android:layout_alignRight="@+id/imagep"
+            android:layout_marginRight="-84dp"
             android:backgroundTint="#DFD2D1"
             android:contentDescription="Look at next door"
             android:src="@drawable/ic_next_arrow_24_black"
             android:text="@string/nextText" />
 
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/answerText"
-        android:layout_width="537dp"
-        android:layout_height="286dp"
-        android:layout_gravity="right"
-        android:layout_marginStart="-2dp"
-        android:layout_toEndOf="@+id/imagep"
-        android:contentDescription="Question text user answers"
-        android:padding="10dp"
-        android:text="@string/questionText"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
 </RelativeLayout>

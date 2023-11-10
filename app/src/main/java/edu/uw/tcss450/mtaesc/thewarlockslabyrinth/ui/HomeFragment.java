@@ -33,6 +33,11 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         FragmentHomeBinding binding = FragmentHomeBinding.bind(requireView());
+//        binding.buttonNew.setOnClickListener(button ->
+//                Navigation.findNavController(requireView()).navigate(
+//                        HomeFragmentDirections
+//                                .actionNavigationHomeToNavigationNewGame()));
+        //TODO: QuestionScreenFragment:
         binding.buttonNew.setOnClickListener(button ->
                 Navigation.findNavController(requireView()).navigate(
                         HomeFragmentDirections

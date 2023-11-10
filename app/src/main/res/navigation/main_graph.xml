@@ -6,9 +6,14 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
+        android:id="@+id/navigation_question_screen_fragment"
+        android:name="edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.QuestionScreenFragment"
+        android:label="@string/door_question"
+        tools:layout="@layout/fragment_questions_screen" />
+    <fragment
         android:id="@+id/navigation_new_game"
         android:name="edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.NewGameFragment"
-        android:label="fragment_new_game"
+        android:label="@string/new_game_doors"
         tools:layout="@layout/fragment_new_game" />
     <fragment
         android:id="@+id/navigation_resume_game"
@@ -31,6 +36,9 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_new_game"
             app:destination="@id/navigation_new_game" />
+<!--        <action-->
+<!--            android:id="@+id/action_navigation_home_to_navigation_test_game"-->
+<!--            app:destination="@id/navigation_test_game" />-->
         <action
             android:id="@+id/action_navigation_home_to_navigation_resume_game"
             app:destination="@id/navigation_resume_game" />

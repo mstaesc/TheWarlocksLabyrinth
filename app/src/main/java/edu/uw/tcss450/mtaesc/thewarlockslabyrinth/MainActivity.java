@@ -1,14 +1,9 @@
 package edu.uw.tcss450.mtaesc.thewarlockslabyrinth;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ActionBar;
-import android.os.Build;
+import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 //import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.MainGameDisplay;
 
