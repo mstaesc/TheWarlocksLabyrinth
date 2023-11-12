@@ -21,6 +21,7 @@ import androidx.navigation.Navigation;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.R;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.databinding.FragmentNewGameBinding;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.databinding.FragmentQuestionsScreenBinding;
+import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.Door;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.Question;
 
 public class QuestionScreenFragment extends Fragment implements View.OnClickListener{
@@ -61,6 +62,8 @@ public class QuestionScreenFragment extends Fragment implements View.OnClickList
             new Question(R.string.questionText3, true),
             new Question(R.string.questionText4, false),
     };
+
+//    Door door = new Door(evenDoors, oddDoors, q);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

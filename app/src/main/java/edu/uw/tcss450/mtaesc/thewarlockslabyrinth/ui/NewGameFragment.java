@@ -1,6 +1,5 @@
 package edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui;
 
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
@@ -12,14 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.MainActivity;
-import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.databinding.FragmentHomeBinding;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.databinding.FragmentNewGameBinding;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.ui.game.Question;
 import edu.uw.tcss450.mtaesc.thewarlockslabyrinth.R;
@@ -37,10 +31,7 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
     private ImageButton nextBtn;
     private ImageButton prevBtn;
     private ImageButton doorImage;
-    private TextView questionText;
-
-    private int correctAns = 0;
-    private int currentQuestionIndex = 0; //current index of question in q array
+    private int currentDoorIndex = 0; //current index of door user is looking at
 
     /**
      set up array of questions w/ objects of Question class.
@@ -101,28 +92,20 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
         switch (view.getId()) {
             case R.id.next_button:
                 //go to next door, only 4 doors
-                if (currentQuestionIndex < 5) {
-                    currentQuestionIndex++;
-
-                    if (currentQuestionIndex == 4) { //reached last door
-                        questionText.setText(getString(R.string.endGood, correctAns));
-//                        falseBtn.setVisibility(View.INVISIBLE);
-//                        trueBtn.setVisibility(View.INVISIBLE);
-                        nextBtn.setVisibility(View.INVISIBLE);
-                        prevBtn.setVisibility(View.INVISIBLE);
-
-                        //if failed majority of questions, TODO: add accurate # of q's
-                        if (correctAns == 0) {
-                            questionText.setText(getString(R.string.endBad));
-                        }
-                    } else {
-                        updateDoor();
-                    }
+                if (currentDoorIndex < 3) {
+                    currentDoorIndex++;
+                    updateDoor();
+                } else { //hit next when on door 4 (the last door) -> next goes back to beginning
+                    currentDoorIndex = 0; //reset index to first door
+                    updateDoor();
                 }
                 break;
             case R.id.prev_button:
-                if (currentQuestionIndex > 0) {
-                    currentQuestionIndex = (currentQuestionIndex--) % q.length;
+                if (currentDoorIndex == 0) {
+                    currentDoorIndex = 3; //last door
+                    updateDoor();
+                } else {
+                    currentDoorIndex--;
                     updateDoor();
                 }
 
@@ -133,21 +116,20 @@ public class NewGameFragment extends Fragment implements View.OnClickListener{
      * Updates the door that the user is looking at and gives new question from q[].
      */
     private void updateDoor() {
-        Log.d("Current", "onClick: " + currentQuestionIndex);
-        questionText.setText(q[currentQuestionIndex].getQuestionID());
+        Log.d("Current", "onClick: " + currentDoorIndex);
 
         //switch case to set TextView with new question
-        switch (currentQuestionIndex) {
-            case 1: //north
+        switch (currentDoorIndex) {
+            case 0: //north
                 doorImage.setImageResource(R.drawable.door_1);
                 break;
-            case 2: //east
+            case 1: //east
                 doorImage.setImageResource(R.drawable.door_2);
                 break;
-            case 3: //south
+            case 2: //south
                 doorImage.setImageResource(R.drawable.door_3);
                 break;
-            case 4: //west
+            case 3: //west
                 doorImage.setImageResource(R.drawable.door_4);
                 break;
         }

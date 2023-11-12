@@ -15,7 +15,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
     @author StephMGibbs
  */
-public class Room extends PagerAdapter {
+public class Room {
     /*
     TODO:
         Labyrinth as matrix (default 3x3), where user starts in upper left corner & ends game once reaches the lower right corner.
@@ -65,25 +65,5 @@ public class Room extends PagerAdapter {
         this.doorsOdd = doorsOdd;
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
-    /**
-     * Return the number of views available.
-     */
-    @Override
-    public int getCount() {
-        return doorsOdd.length; //using Odd, but same size as even (4)
-    }
 
-    /**
-     * Determines whether a page View is associated with a specific key object
-     * as returned by instantiateItem. This method is
-     * required for a PagerAdapter to function properly.
-     *
-     * @param view   Page View to check for association with <code>object</code>
-     * @param object Object to check for association with <code>view</code>
-     * @return true if <code>view</code> is associated with the key object <code>object</code>
-     */
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == ((LinearLayout) object);
-    }
 }
