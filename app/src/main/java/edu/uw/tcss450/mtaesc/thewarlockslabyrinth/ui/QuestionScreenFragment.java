@@ -46,7 +46,7 @@ public class QuestionScreenFragment extends Fragment implements View.OnClickList
     private int correctAns = 0;
     private int currentQuestionIndex = 0; //current index of question in q array
 
-    // TODO: QuestionScreenFragment things:
+    // TODO: Make index of room to change door color. Start default at 0, when enter another room in any direction add 1 to change to different color. When move to different room the index is subtracted back to 0 and changed to the original color.
     int[] evenDoors = {R.drawable.door_1, R.drawable.door_2, R.drawable.door_3, R.drawable.door_4};
 
     int[] oddDoors = {R.drawable.door_1_alt, R.drawable.door_2_alt, R.drawable.door_3_alt, R.drawable.door_4_alt};
@@ -118,9 +118,11 @@ public class QuestionScreenFragment extends Fragment implements View.OnClickList
         switch (view.getId()) {
             case R.id.falseBtn:
                 checkUserAnswer(false);
+                endResults();
                 break;
             case R.id.trueBtn:
                 checkUserAnswer(true);
+                endResults();
                 break;
             case R.id.goBackBtn:
                 //todo
@@ -130,17 +132,6 @@ public class QuestionScreenFragment extends Fragment implements View.OnClickList
                 //todo
         }
     }
-
-
-    FragmentQuestionsScreenBinding mBinding;
-//                View mView;
-//                mBinding.goBackBtn.setOnClickListener(
-//                      view1 -> {
-//                          Navigation.findNavController(mView).navigate(
-//                                  Directio
-//                          );
-//                      }
-//                );
 
     /**
      * TODO: get question from q[], based on what door the user is at.
@@ -165,6 +156,7 @@ public class QuestionScreenFragment extends Fragment implements View.OnClickList
                 falseBtn.setVisibility(View.INVISIBLE);
                 trueBtn.setVisibility(View.INVISIBLE);
                 goBackBtn.setVisibility(View.VISIBLE);
+
             } else {
                 questionText.setText(getString(R.string.endGood, correctAns));
                 falseBtn.setVisibility(View.INVISIBLE);

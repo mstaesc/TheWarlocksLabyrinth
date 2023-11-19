@@ -59,6 +59,7 @@ public class Door {
      * Gets the door to display to user currently. Checks if the room is
      *      even or odd, and what direction the user is facing (doorAt).
      * NOTE: doorAt is from 0 (North), 1 (East), 2 (South), 3 (West)
+     *      roomIndex is where in 2D matrix the player is in the maze.
      * @param roomIndex
      * @param doorAt
      * @return
